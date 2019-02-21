@@ -25,12 +25,12 @@ namespace Dashboard.Subscriber
 
             lifetime.ApplicationStarted.Register(() =>
             {
-                var subscriber = new AutoSubscriber(bus, prefix)
+                if (bus != null) { var subscriber = new AutoSubscriber(bus, prefix)
                 {
                     AutoSubscriberMessageDispatcher = new MessageDispatcher(app.ApplicationServices)
                 };
-                subscriber.Subscribe(assembly);
-                subscriber.SubscribeAsync(assembly);
+                    subscriber.Subscribe(assembly);
+                    subscriber.SubscribeAsync(assembly); }
             });
 
             lifetime.ApplicationStopped.Register(() => bus.Dispose());

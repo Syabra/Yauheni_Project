@@ -23,12 +23,6 @@ namespace Dashboard.Subscriber.Cunsumer
         {
             await _NewsRepository.AddAutoNews(_mapper.Map<TicketInfo>(message));
         }
-        /*
-        [AutoSubscriberConsumer(SubscriptionId = "TicketService.Updated")]
-        public async Task ConsumeAsync(TicketUpdatedMessage message)
-        {
-            await _NewsRepository.SaveAsync(_mapper.Map<TicketInfo>(message));
-        }*/
 
         [AutoSubscriberConsumer(SubscriptionId = "TicketService.Deleted")]
         public async Task ConsumeAsync(TicketDeletedMessage message)
