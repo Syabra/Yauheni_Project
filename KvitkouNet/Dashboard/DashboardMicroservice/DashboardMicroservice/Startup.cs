@@ -48,7 +48,7 @@ namespace DashboardMicroService
 
             app.UseMvc();
 
-           // app.UseSubscriber("TicketService", Assembly.GetExecutingAssembly());
+            app.UseSubscriber("TicketService", Assembly.GetExecutingAssembly());
         }
     }
 }
